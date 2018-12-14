@@ -1,0 +1,13 @@
+                       _                     _                       _           _                            
+  ___   _ __    _ __  (_)  _ __     __ _    | |__     ___     ___   | |_      __| |   ___   _ __ ___     ___  
+ / __| | '_ \  | '__| | | | '_ \   / _` |   | '_ \   / _ \   / _ \  | __|    / _` |  / _ \ | '_ ` _ \   / _ \ 
+ \__ \ | |_) | | |    | | | | | | | (_| |   | |_) | | (_) | | (_) | | |_    | (_| | |  __/ | | | | | | | (_) |
+ |___/ | .__/  |_|    |_| |_| |_|  \__, |   |_.__/   \___/   \___/   \__|    \__,_|  \___| |_| |_| |_|  \___/ 
+       |_|                         |___/                                                                      
+${AnsiColor.BRIGHT_RED}
+Spring Boot Version: ${spring-boot.version}${spring-boot.formatted-version}
+mysql
+redis
+mongodb
+swagger2
+rabbitmq: docker run -d --name rabbitmq -p 5673:5672 -p 15673:15672 rabbitmq:3.7.8-management   管理端口：15673 用户： guest/guest

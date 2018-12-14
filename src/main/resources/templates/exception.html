@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>错误页</title>
+</head>
+<body>
+很抱歉，服务发生了错误！<br>
+ <div th:utext="${exceptionMessage}">
+ </div>
+</body>
+</html>

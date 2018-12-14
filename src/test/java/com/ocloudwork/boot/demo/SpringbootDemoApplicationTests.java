@@ -1,0 +1,43 @@
+package com.ocloudwork.boot.demo;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+public class SpringbootDemoApplicationTests {
+
+	@Autowired
+	private MockMvc mvc;
+
+	@Test
+	public void testFindUserById() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("/user/queryUserById?id=40288a4c65fa44c30165fa44f9600000"))
+				.andExpect(MockMvcResultMatchers.status().isOk());
+	}
+
+	@Test
+	public void queryUserById() throws Exception {
+		String url = "/user/queryUserById?id=40288a4c65fa44c30165fa44f9600000";
+		MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(url).accept(MediaType.APPLICATION_JSON))
+				.andReturn();
+		//访问返回状态
+		int status = mvcResult.getResponse().getStatus();
+		//接口返回结果
+		String content = mvcResult.getResponse().getContentAsString();
+		System.out.println(content);
+		Assert.assertTrue("错误", status == 200);
+	}
+
+}
