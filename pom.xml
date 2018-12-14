@@ -22,7 +22,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<docker.image.prefix>registry.ocloudwork.com</docker.image.prefix>
 	</properties>
 
 	<dependencies>
@@ -145,7 +144,7 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.4.13</version>
 				<configuration>
-					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+					<imageName>ocloud/${project.artifactId}</imageName>
 					<imageTags>
 			            <imageTag>latest</imageTag>
 			        </imageTags>
