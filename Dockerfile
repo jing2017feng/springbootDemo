@@ -1,7 +1,7 @@
 FROM java:8
 VOLUME /tmp
 RUN mkdir /app
-ADD springbootDemo-0.0.1-SNAPSHOT.jar /app/app.jar
+ADD target/springbootDemo-0.0.1-SNAPSHOT.jar /app/app.jar
 RUN sh -c 'touch /app/app.jar'
 EXPOSE 10000
 ENV JAVA_OPTS=""
