@@ -1,14 +1,23 @@
 package com.ocloudwork.boot.demo.utils;
 
 import java.io.File;
+import java.nio.file.Files;
+
 /**
  * 文件工具
+ * 
  * @author minghui
  *
  */
 public class FileUtils {
+	
+	private FileUtils() {
+		throw new IllegalStateException("FileUtils class");
+	}
+
 	/**
 	 * 刪除目录及目录下的所有文件
+	 * 
 	 * @param path
 	 */
 	public static void deleteDir(String path) {
@@ -19,11 +28,14 @@ public class FileUtils {
 				for (File subFile : files) {
 					if (subFile.isDirectory())
 						deleteDir(subFile.getPath());
-					else
-						subFile.delete();
+					else if (!subFile.delete()) {
+						return;
+					}
 				}
 			}
-			file.delete();
+			if (!file.delete()) {
+				return;
+			}
 		}
 	}
 }

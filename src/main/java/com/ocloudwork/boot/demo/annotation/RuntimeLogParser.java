@@ -24,15 +24,20 @@ public class RuntimeLogParser {
 	private boolean enableLog = false;
 
 	@Around("cut()")
-	public Object runtimeDeal(ProceedingJoinPoint joinPoint) throws Throwable {
-		if (!enableLog) {
-			return joinPoint.proceed();
+	public Object runtimeDeal(ProceedingJoinPoint joinPoint) {
+		Object obj = null;
+		try {
+			if (!enableLog) {
+				return joinPoint.proceed();
+			}
+			long start = System.currentTimeMillis();
+			obj = joinPoint.proceed();
+			long result = System.currentTimeMillis() - start;
+			String methodName = joinPoint.getStaticPart().toLongString();
+			logger.info(Marker.ANY_MARKER, "{0}:{1}", methodName, result);
+		} catch (Throwable e) {
+			logger.error(e.getMessage());
 		}
-		long start = System.currentTimeMillis();
-		Object obj = joinPoint.proceed();
-		long result = System.currentTimeMillis() - start;
-		String methodName = joinPoint.getStaticPart().toLongString();
-		logger.info(Marker.ANY_MARKER, "{0}:{1}", methodName, result);
 		return obj;
 	}
 
