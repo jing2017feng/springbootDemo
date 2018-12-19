@@ -17,7 +17,7 @@ public class OpenOffice2PDF {
 	 * office中各种格式
 	 */
 	private static final String[] OFFICE_POSTFIXS = { "doc", "docx", "xls", "xlsx", "ppt", "pptx" };
-	private ArrayList<String> office_Formats = new ArrayList<>();
+	private ArrayList<String> officeFormats = new ArrayList<>();
 
 	/**
 	 * 根据操作系统的名称，获取OpenOffice 4的安装目录 如我的OpenOffice 4安装在：C:/Program
@@ -72,8 +72,8 @@ public class OpenOffice2PDF {
 		// 连接OpenOffice
 		OfficeDocumentConverter converter = new OfficeDocumentConverter(officeManager);
 		File inputFile = new File(inputFilePath);
-		Collections.addAll(office_Formats, OFFICE_POSTFIXS);
-		if ((null != inputFilePath) && (inputFile.exists()) && office_Formats.contains(getPostfix(inputFilePath))) {
+		Collections.addAll(officeFormats, OFFICE_POSTFIXS);
+		if ((null != inputFilePath) && (inputFile.exists()) && officeFormats.contains(getPostfix(inputFilePath))) {
 			if (null == outputFilePath) {
 				// 转换后的文件路径
 				String defaultOutputFilePath = generateDefaultOutputFilePath(inputFilePath);
