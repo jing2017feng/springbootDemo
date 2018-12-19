@@ -6,7 +6,7 @@ import java.nio.file.Files;
 /**
  * 文件工具
  * 
- * @author minghui
+ * @author minghui 
  *
  */
 public class FileUtils {
