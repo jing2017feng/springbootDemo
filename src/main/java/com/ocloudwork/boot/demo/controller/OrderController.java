@@ -28,9 +28,9 @@ public class OrderController {
 
     @PostMapping("/postJson")
     public @ResponseBody Map<String, Object> postJson(@RequestBody Order order) {
-        System.out.println("order no:" + order.no);
-        System.out.println("order quantity:" + order.quantity);
-        System.out.println("order date:" + order.date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        System.out.println("order no:" + order.getNo());
+        System.out.println("order quantity:" + order.getQuantity());
+        System.out.println("order date:" + order.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         Map<String, Object> map = new HashMap<>();
         map.put("msg", "ok");
         map.put("value", order);

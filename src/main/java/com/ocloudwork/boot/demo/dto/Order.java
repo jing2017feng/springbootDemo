@@ -7,11 +7,11 @@ public class Order implements Serializable {
 
 	private static final long serialVersionUID = -766830546603566730L;
 
-	public String no;
+	private String no;
 
-	public Date date;
+	private Date date;
 
-	public int quantity;
+	private int quantity;
 
 	public String getNo() {
 		return no;

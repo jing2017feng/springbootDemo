@@ -20,10 +20,14 @@ public class FileUtils {
 					if (subFile.isDirectory())
 						deleteDir(subFile.getPath());
 					else
-						subFile.delete();
+						if (!subFile.delete()) {
+							return;
+						}
 				}
 			}
-			file.delete();
+			if (!file.delete()) {
+				return;
+			}
 		}
 	}
 }
