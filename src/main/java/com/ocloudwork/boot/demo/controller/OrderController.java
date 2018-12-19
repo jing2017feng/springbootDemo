@@ -15,6 +15,7 @@ import com.ocloudwork.boot.demo.dto.Order;
 
 @Controller
 public class OrderController {
+
 	Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@PostMapping("/postData")
