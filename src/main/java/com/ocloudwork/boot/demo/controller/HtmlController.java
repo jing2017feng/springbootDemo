@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.ocloudwork.boot.demo.annotation.RuntimeLog;
 
 @Controller
-@RequestMapping("/html")
 public class HtmlController {
 	/**
 	 * 跳转到指定html页面
@@ -19,7 +18,7 @@ public class HtmlController {
 	 * @return
 	 */
 	@RuntimeLog
-	@RequestMapping(path = "route/{page}", method = RequestMethod.GET)
+	@RequestMapping(path = "/html/route/{page}", method = RequestMethod.GET)
 	public String route(@PathVariable("page") String page,HttpServletRequest request,Model model) {
 		model.addAllAttributes(request.getParameterMap());
 		return page;
@@ -32,9 +31,21 @@ public class HtmlController {
 	 * @return
 	 */
 	@RuntimeLog
-	@RequestMapping(path = "path/{path}/{page}", method = RequestMethod.GET)
+	@RequestMapping(path = "/html/path/{path}/{page}", method = RequestMethod.GET)
 	public String path(@PathVariable("path") String path,@PathVariable("page") String page,HttpServletRequest request,Model model) {
 		model.addAllAttributes(request.getParameterMap());
 		return path+"/"+page;
+	}
+	/**
+	 * 首页
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RuntimeLog
+	@RequestMapping(path = {"/index","/"}, method = RequestMethod.GET)
+	public String path(HttpServletRequest request,Model model) {
+		model.addAllAttributes(request.getParameterMap());
+		return "index";
 	}
 }
