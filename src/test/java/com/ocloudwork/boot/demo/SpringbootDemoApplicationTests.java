@@ -27,13 +27,13 @@ public class SpringbootDemoApplicationTests {
 
 	@Test
 	public void testFindUserById() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/user/queryUserById?id=40288a4c65fa44c30165fa44f9600000"))
+		mvc.perform(MockMvcRequestBuilders.get("/user/queryUserById?id=40288abb699a559c01699a55e7710000"))
 				.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 
 	@Test
 	public void queryUserById() throws Exception {
-		String url = "/user/queryUserById?id=40288a4c65fa44c30165fa44f9600000";
+		String url = "/user/queryUserById?id=40288abb699a559c01699a55e7710000";
 		MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(url).accept(MediaType.APPLICATION_JSON))
 				.andReturn();
 		//访问返回状态
