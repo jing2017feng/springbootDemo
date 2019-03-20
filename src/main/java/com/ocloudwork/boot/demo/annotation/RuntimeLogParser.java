@@ -8,11 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Marker;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
 @ConfigurationProperties(prefix = "runtime.log")
+@Order(100)//优先级低
 public class RuntimeLogParser {
 	Logger logger = LoggerFactory.getLogger(getClass());
 

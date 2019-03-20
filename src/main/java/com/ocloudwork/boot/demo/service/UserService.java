@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ocloudwork.boot.demo.annotation.RuntimeLog;
 import com.ocloudwork.boot.demo.dao.UserRepository;
@@ -64,10 +65,12 @@ public class UserService {
 	}
 
 	@RuntimeLog
+	@Transactional
 	public User saveUser(User user) {
 		user.setCreateBy("jingfeng");
 		mongoTemplate.save(user);
-		return userRepository.save(user);
+		user= userRepository.save(user);
+		return user;
 	}
 	
 	@Async
