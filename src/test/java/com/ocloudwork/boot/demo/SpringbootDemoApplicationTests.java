@@ -44,10 +44,4 @@ public class SpringbootDemoApplicationTests {
 		Assert.assertTrue("错误", status == 200);
 	}
 	
-	@Test
-    public void encryptPwd() {
-        String result = stringEncryptor.encrypt("jing2088feng!M");
-        System.out.println(result); 
-    }
-
 }
