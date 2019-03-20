@@ -24,13 +24,21 @@ public class SpringbootDemoApplicationTests {
 	
 	@Autowired
     StringEncryptor stringEncryptor;
-
+	
+	/**
+	 * 接口可访问性测试
+	 * @throws Exception
+	 */
 	@Test
 	public void testFindUserById() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.get("/user/queryUserById?id=40288abb699a559c01699a55e7710000"))
 				.andExpect(MockMvcResultMatchers.status().isOk());
 	}
-
+	
+	/**
+	 * 接口返回数据测试
+	 * @throws Exception
+	 */
 	@Test
 	public void queryUserById() throws Exception {
 		String url = "/user/queryUserById?id=40288abb699a559c01699a55e7710000";
