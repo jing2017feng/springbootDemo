@@ -135,6 +135,7 @@
 					</execution>
 				</executions>
 				<configuration>
+					<!-- 根据target的jdk版本，选择对应的版本 -->
 					<proguardVersion>6.0.3</proguardVersion>
 					<!-- 是否将生成的PG文件安装部署 -->
 					<attach>true</attach>
