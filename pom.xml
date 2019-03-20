@@ -106,6 +106,14 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.2.2</version>
 		</dependency>
+		<!-- devtools -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+			<scope>true</scope>
+		</dependency>
+		<!-- test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -118,6 +126,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!--fork : 如果没有该项配置，肯定devtools不会起作用，即应用不会restart -->
+					<fork>true</fork>
+				</configuration>
 			</plugin>
 			<!-- ProGuard混淆插件 -->
 			<plugin>
@@ -170,12 +182,8 @@
 						<!-- 不混淆所有的set/get方法 -->
 						<!--<option>-keepclassmembers public class * {void set*(***);*** get*();}</option> -->
 
-						<!-- 不混淆包下的所有类名，且类中的方法也不混淆 
-						<option>
-							-keep class com.ocloudwork.boot.demo.SpringbootDemoApplication {
-							<![CDATA[<methods>;]]>
-							}
-						</option>-->
+						<!-- 不混淆包下的所有类名，且类中的方法也不混淆 <option> -keep class com.ocloudwork.boot.demo.SpringbootDemoApplication 
+							{ <![CDATA[<methods>;]]> } </option> -->
 						<option>-keep class com.ocloudwork.boot.demo.advice.** { *; }</option>
 						<option>
 							-keep class com.ocloudwork.boot.demo.controller.** {
